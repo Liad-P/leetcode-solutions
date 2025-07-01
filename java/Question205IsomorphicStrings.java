@@ -63,6 +63,25 @@ public class Question205IsomorphicStrings {
         return true;
     }
 
+    public boolean isIsomorphicV4(String s, String t) {
+        HashMap<Character, Character> sToT = new HashMap<>();
+        for (int i = 0; i < s.length(); i++) {
+            char skey = s.charAt(i);
+            char tval = t.charAt(i);
+            if (sToT.containsValue(tval) && sToT.containsKey(skey) && sToT.get(skey) == tval) {
+                continue;
+            }
+            if (
+                (sToT.containsKey(skey) && sToT.get(skey) != tval)
+                || sToT.containsValue(tval)
+            ) {
+                return false;
+            }
+            sToT.put(skey, tval);
+        }
+        return true;
+    }
+
     public List<Integer> indexesOfCharacter(String s, char c, int indexToStartFrom) {
 
         List<Integer> indexes = new ArrayList<>();
@@ -103,6 +122,15 @@ public class Question205IsomorphicStrings {
         System.out.println(q.isIsomorphicV3("paper", "title"));
         System.out.println(q.isIsomorphicV3("p", "t"));
         System.out.println(q.isIsomorphicV3("p\"", "tn"));
+        System.out.println("V4:");
+        System.out.println(q.isIsomorphicV4("egg", "add"));
+
+        System.out.println(q.isIsomorphicV4("foo", "bar"));
+
+        System.out.println(q.isIsomorphicV4("paper", "title"));
+        System.out.println(q.isIsomorphicV4("p", "t"));
+        System.out.println(q.isIsomorphicV4("p\"", "tn"));
+        System.out.println(q.isIsomorphicV4("badc", "baba"));
 
         System.out.println("Indexes of chars: ");
 
