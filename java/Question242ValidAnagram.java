@@ -1,6 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 
+// https://leetcode.com/problems/valid-anagram/description/?envType=study-plan-v2&envId=top-interview-150
 public class Question242ValidAnagram {
     public boolean isAnagram(String s, String t) {
 
